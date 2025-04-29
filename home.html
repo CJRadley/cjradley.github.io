@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Dispatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main>
+        <section class="hero" id="hero">
+            <video class="hero-video-bg" src="assets/0128.mp4" autoplay loop muted playsinline></video>
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>Quantum Dispatch: a Star Citizen podcast</h1>
+                <p>Unparalleled adventures, great community, exciting features and a 'verse full of potential.</p>
+            </div>
+        </section>
+        <section class="episodes" id="episodes">
+            <h2>Latest Episodes</h2>
+            <div class="episode-cards" id="latest-episodes">
+            </div>
+        </section>
+        <section class="hosts" id="hosts">
+            <h2>Meet the Hosts</h2>
+            <div class="host-cards">
+                <div class="host-card">
+                    <img src="images/host-cj-pfp.jpg" alt="CJ">
+                    <h3><a href="/pages/hosts/cj.html">CJRadley</a></h3>
+                    <p>Founder &amp; Host. Star Citizen lore expert and ship enthusiast.</p>
+                    <a href="/pages/hosts/cj.html" class="cta-btn small">More</a>
+                </div>
+                <div class="host-card">
+                    <img src="images/host-gfa-pfp.jpg" alt="GFA">
+                    <h3><a href="/pages/hosts/gfa.html">GFA</a></h3>
+                    <p>Co-Host. News anchor and community spotlight specialist.</p>
+                    <a href="/pages/hosts/gfa.html" class="cta-btn small">More</a>
+                </div>
+                <div class="host-card">
+                    <img src="images/host-ode-pfp.jpg" alt="ODE">
+                    <h3><a href="/pages/hosts/ode.html">OneDarkEnigma</a></h3>
+                    <p>Co-Host. News anchor and community spotlight specialist.</p>
+                    <a href="/pages/hosts/ode.html" class="cta-btn small">More</a>
+                </div>
+            </div>
+        </section>
+        <section class="link" id="link">
+            <h2>Top Links</h2>
+            <div class="link-cards">
+                <article class="link-card">
+                    <img src="images/fleetcommander.jpg" alt="Fleet Commander">
+                    <div>
+                        <h3>Fleet Commander minigame</h3>
+                        <p>Come try our minigame where you could own everything from a PTV to a IDRIS.</p>
+                        <a href="/pages/fleetcommander.html" class="cta-btn small">Play Now</a>
+                    </div>
+                </article>
+                <article class="link-card">
+                    <img src="images/quantumexchange.jpg" alt="Fleet Commander">
+                    <div>
+                        <h3>Quantum Exchange: SC Marketplace</h3>
+                        <p>Come try our new tool where you can trade the in game items you've been waiting for.</p>
+                        <a href="/pages/quantumexchange.html" class="cta-btn small">Start Trading</a>
+                    </div>
+                </article>
+                <article class="link-card">
+                    <img src="images/starsquadrons.jpg" alt="Star Squadrons">
+                    <div>
+                        <h3>Star Squadrons TCG</h3>
+                        <p>Come and check out a game from our friend Thomas who created a trading card game where you can command your fleet against enemy forces.</p>
+                        <a href="/pages/starsquadron.html" class="cta-btn small">Check out</a>
+                    </div>
+                </article>
+                <article class="link-card">
+                    <img src="images/jpn.jpg" alt="JPN">
+                    <div>
+                        <h3>Join the Jump Point Network</h3>
+                        <p>Whether you're a seasoned Citizen or just getting started, this is your hub for finding crew mates, joining an Org, and connecting with fellow players in the UK & EU time zones.</p>
+                        <a href="/pages/jpn.html" class="cta-btn small">Join</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="js/youtube-episodes.js"></script>
+    <script src="js/nav.js"></script>
+    <script>
+    // Load persistent header and footer
+    function loadInclude(id, url) {
+        fetch(url).then(r => r.text()).then(html => {
+            document.getElementById(id).innerHTML = html;
+        });
+    }
+    loadInclude('site-header', 'includes/header.html');
+    loadInclude('site-footer', 'includes/footer.html');
+    </script>
+</body>
+</html>

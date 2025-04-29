@@ -1,0 +1,26 @@
+// Mobile nav toggle logic for persistent header
+document.addEventListener('DOMContentLoaded', function() {
+    function setupNavToggle() {
+        const navToggle = document.querySelector('.mobile-nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        if (!navToggle || !mainNav) return;
+        navToggle.addEventListener('click', function() {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            mainNav.classList.toggle('open');
+            if (mainNav.classList.contains('open')) {
+                document.body.classList.add('nav-open');
+            } else {
+                document.body.classList.remove('nav-open');
+            }
+        });
+    }
+    // Wait for header to be loaded
+    const observer = new MutationObserver(() => {
+        if (document.querySelector('.mobile-nav-toggle')) {
+            setupNavToggle();
+            observer.disconnect();
+        }
+    });
+    observer.observe(document.getElementById('site-header'), { childList: true, subtree: true });
+});
