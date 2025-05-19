@@ -10,9 +10,36 @@
 <body>
     <div id="site-header"></div>
     <main>
-        <!-- Page content goes here -->
-        <h1>Episodes</h1>
-        <p>Episodes list will be added here in the future.</p>
+        <section class="episodes-list-section" style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+            <h1>Episodes</h1>
+            <div class="episodes-controls" style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2rem;">
+                <input type="text" id="episode-search" placeholder="Search episodes..." style="flex: 1 1 220px; min-width: 180px; padding: 0.7em 1em; border-radius: 4px; border: 1px solid #2a2e39; background: #181c24; color: #f5f7fa; font-size: 1rem;">
+                <select id="season-select" style="padding: 0.7em 1em; border-radius: 4px; border: 1px solid #2a2e39; background: #181c24; color: #f5f7fa; font-size: 1rem;">
+                    <option value="all">All Seasons</option>
+                    <option value="season1">Season 1</option>
+                    <option value="season2">Season 2</option>
+                    <option value="season3">Season 3</option>
+                    <!-- Add more seasons as needed -->
+                </select>
+            </div>
+            <div id="episodes-list">
+                <!--
+                    Example episode card structure:
+                    <div class="episode-list-card">
+                        <div class="episode-list-thumb">
+                            <img src="../images/episode-thumb.jpg" alt="Episode Thumbnail">
+                        </div>
+                        <div class="episode-list-info">
+                            <h3>Episode Title</h3>
+                            <p>Short description or summary...</p>
+                            <span class="episode-meta">Season 1 • Episode 3 • 2024-05-01</span>
+                            <a href="/pages/episodes/episode-XXXXXXXX.html" class="cta-btn small">Show Notes</a>
+                        </div>
+                    </div>
+                -->
+                <p style="text-align:center; color:#bfc9d1; opacity:0.7;">Episodes will appear here. Use the search or select a season.</p>
+            </div>
+        </section>
     </main>
     <div id="site-footer"></div>
     <script src="../js/nav.js"></script>

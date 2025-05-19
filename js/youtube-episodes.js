@@ -1,14 +1,13 @@
 // Fetch and display latest Quantum Dispatch YouTube episodes
 
-const API_KEY = 'YOUR_API_KEY'; // <-- Replace with your YouTube Data API key
-const CHANNEL_ID = 'YOUR_CHANNEL_ID'; // <-- Replace with your channel ID
 const MAX_RESULTS = 3; // Number of episodes to show on homepage
 
 async function fetchLatestEpisodes() {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+    // Fetch from your backend endpoint instead of YouTube API directly
+    const url = `/api/youtube-episodes?maxResults=${MAX_RESULTS}`;
     const response = await fetch(url);
     const data = await response.json();
-    return data.items.filter(item => item.id.kind === 'youtube#video');
+    return data.items;
 }
 
 function createEpisodeCard(video) {
