@@ -1,4 +1,3 @@
-// Mobile nav toggle logic for persistent header
 document.addEventListener('DOMContentLoaded', function() {
     function setupNavToggle() {
         const navToggle = document.querySelector('.mobile-nav-toggle');
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    // Wait for header to be loaded
     const observer = new MutationObserver(() => {
         if (document.querySelector('.mobile-nav-toggle')) {
             setupNavToggle();
