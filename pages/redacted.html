@@ -1,28 +1,143 @@
+<!-- Fancy Red Cyberpunk Redacted Secret Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>[Redacted] - Quantum Dispatch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <title>REDACTED | Quantum Dispatch</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a0000 0%, #330000 100%);
+            color: #ff003c;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Orbitron', 'Share Tech Mono', monospace, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .glitch {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            color: #ff003c;
+            position: relative;
+            animation: flicker 2s infinite alternate;
+            text-shadow:
+                0 0 8px #ff003c,
+                0 0 20px #ff003c,
+                0 0 40px #ff003c,
+                2px 2px 0 #000,
+                -2px -2px 0 #fff;
+        }
+        .glitch::before, .glitch::after {
+            content: 'REDACTED';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        .glitch::before {
+            top: -2px;
+            color: #fff;
+            opacity: 0.7;
+            clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+            animation: glitchTop 2s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            top: 2px;
+            color: #00ffe7;
+            opacity: 0.5;
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+            animation: glitchBottom 2s infinite linear alternate;
+        }
+        @keyframes glitchTop {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-5px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-3px); }
+            80% { transform: translateX(3px); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes glitchBottom {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(5px); }
+            40% { transform: translateX(-5px); }
+            60% { transform: translateX(3px); }
+            80% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            10% { opacity: 0.8; }
+            20% { opacity: 0.6; }
+            30% { opacity: 0.9; }
+            40% { opacity: 0.7; }
+            50% { opacity: 1; }
+            60% { opacity: 0.8; }
+            70% { opacity: 0.6; }
+            80% { opacity: 0.9; }
+            90% { opacity: 0.7; }
+        }
+        .cyber-border {
+            border: 3px solid #ff003c;
+            border-radius: 12px;
+            box-shadow: 0 0 30px #ff003c44, 0 0 10px #00ffe7;
+            padding: 2rem 3rem;
+            background: rgba(20,0,0,0.85);
+            margin-top: 2rem;
+            position: relative;
+        }
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border: 2px dashed #00ffe7;
+            border-radius: 16px;
+            pointer-events: none;
+            opacity: 0.5;
+            animation: borderGlow 2s infinite alternate;
+        }
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 10px #00ffe7; }
+            100% { box-shadow: 0 0 30px #00ffe7; }
+        }
+        .secret-text {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            letter-spacing: 0.1em;
+            text-align: center;
+            opacity: 0.8;
+            text-shadow: 0 0 8px #ff003c, 0 0 2px #00ffe7;
+        }
+        .redacted-bar {
+            width: 80%;
+            height: 24px;
+            background: repeating-linear-gradient(90deg, #ff003c 0 10px, #1a0000 10px 20px);
+            margin: 2rem auto 0 auto;
+            border-radius: 6px;
+            box-shadow: 0 0 20px #ff003c88;
+            animation: barFlicker 1.5s infinite alternate;
+        }
+        @keyframes barFlicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="site-header"></div>
-    <main>
-        <h1>[Redacted]</h1>
-        <p>This page is classified. More info may be revealed in the future.</p>
-    </main>
-    <div id="site-footer"></div>
-    <script src="../js/nav.js"></script>
-    <script>
-    function loadInclude(id, url) {
-        fetch(url).then(r => r.text()).then(html => {
-            document.getElementById(id).innerHTML = html;
-        });
-    }
-    loadInclude('site-header', '../includes/header.html');
-    loadInclude('site-footer', '../includes/footer.html');
-    </script>
+    <div class="cyber-border">
+        <div class="glitch">REDACTED</div>
+        <div class="secret-text">
+            ACCESS DENIED<br>
+            <span style="color:#ff003c;">This page is classified.<br>Unauthorized access detected.</span>
+        </div>
+        <div class="redacted-bar"></div>
+    </div>
 </body>
 </html>
