@@ -637,7 +637,7 @@ main {
 /* Secret page hero (star-bg) styles */
 .hero.star-bg {
     position: relative;
-    padding-top: 120px; /* buffer for header */
+    padding-top: 64px; /* buffer for header */
     padding-bottom: 64px; /* buffer for next section */
     min-height: unset;
     height: auto;
