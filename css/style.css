@@ -145,21 +145,15 @@ a:hover, a:focus {
     z-index: 2;
 }
 .hero-content {
-    position: absolute;
-    top: calc(50% + 32px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    width: 100%;
-    max-width: 700px;
-    padding: 3rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 18px;
+    padding: 2.5rem 2rem 2rem 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
     text-align: center;
-    box-sizing: border-box;
 }
-.hero h1 {
+.hero-content h1 {
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -168,10 +162,54 @@ a:hover, a:focus {
     text-shadow: 0 2px 16px #000a;
     
 }
-.hero p {
+.hero-content p {
     font-size: 1.25rem;
     color: var(--color-text-secondary);
     margin-bottom: 2rem;
+}
+
+.animated-list li {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.animated-list li.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.countdown-timer {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  color: #00ffe7;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #00ffe7aa;
+}
+
+.cta-btn.large.pulse {
+  font-size: 1.3rem;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, #00ffe7 0%, #0077ff 100%);
+  color: #181b24;
+  box-shadow: 0 0 16px #00ffe7aa, 0 2px 8px #0004;
+  animation: pulse-glow 2s infinite;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-btn.large.pulse:hover, .cta-btn.large.pulse:focus {
+  transform: scale(1.06);
+  box-shadow: 0 0 32px #00ffe7cc, 0 4px 16px #0006;
+  outline: none;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 16px #00ffe7aa, 0 2px 8px #0004; }
+  50% { box-shadow: 0 0 32px #00ffe7cc, 0 4px 16px #0006; }
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 900px) {
@@ -504,100 +542,151 @@ main {
     transition: all 0.2s;
 }
 
-@media (max-width: 1024px) {
-    .header-inner, .footer-inner {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    .episode-cards, .host-cards, .link-cards {
-        gap: 1.2rem;
-    }
+.star-bg {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #23273a 60%, #10131a 100%);
 }
-@media (max-width: 800px) {
-    .header-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        width: 100%;
+.star-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background: transparent;
+    animation: stars-move 60s linear infinite;
+    /* We'll add stars with JS below */
+}
+@keyframes stars-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease 0.2s forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+.features-list {
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto 2rem auto;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 500px;
+    padding: 0;
+    list-style: none;
+}
+.feature-icon {
+    font-size: 1.3em;
+    margin-right: 0.7em;
+    vertical-align: middle;
+}
+.highlight {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--color-accent-gold);
+    font-weight: 600;
+}
+.pulse {
+    animation: pulse 1.5s infinite alternate;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 8px 2px #e6c97b80; }
+    100% { box-shadow: 0 0 24px 8px #e6c97b80; }
+}
+.booking-section {
+    background: var(--color-bg-secondary);
+    padding: 2.5rem 1rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 16px #0003;
+    text-align: center;
+}
+.booking-form-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    background: #222;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    color: #aaa;
+    font-size: 1.1rem;
+}
+.booking-note {
+    color: #ccc;
+}
+.contact-cta {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--color-bg-card);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #0002;
+    text-align: center;
+}
+.contact-cta h2 {
+    font-family: var(--font-main);
+    margin-bottom: 1rem;
+}
+
+/* Secret page hero (star-bg) styles */
+.hero.star-bg {
+    position: relative;
+    padding-top: 120px; /* buffer for header */
+    padding-bottom: 64px; /* buffer for next section */
+    min-height: unset;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    margin-bottom: 0;
+}
+.hero.star-bg .hero-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(24, 27, 36, 0.85);
+    border-radius: 18px;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    box-shadow: 0 4px 32px #0006;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+@media (max-width: 900px) {
+    .hero.star-bg {
+        padding-top: 90px;
+        padding-bottom: 40px;
     }
-    .logo {
-        flex: 0 0 auto;
-    }
-    .mobile-nav-toggle {
-        display: flex;
-        position: static;
-        margin-left: auto;
-        z-index: 2100;
-        align-self: center;
-    }
-    .main-nav ul, .footer-nav ul {
-        gap: 1rem;
-    }
-    .episode-cards, .link-cards, .host-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-    .episode-card, .link-card, .host-card {
-        width: 95%;
-        max-width: 400px;
-    }
-    body.nav-open {
-        overflow: hidden;
+    .hero.star-bg .hero-content {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
     }
 }
 @media (max-width: 600px) {
-    .header-inner {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+    .hero.star-bg {
+        padding-top: 72px;
+        padding-bottom: 24px;
     }
 }
 
-@media (max-width: 800px) {
-    .main-nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100vw;
-        max-width: 340px;
-        background: rgba(16,19,26,0.98);
-        box-shadow: 0 4px 24px #000a;
-        border-left: 1px solid var(--color-border);
-        border-bottom: none;
-        transform: translateX(100%);
-        transition: transform 0.2s cubic-bezier(.4,0,.2,1);
-        z-index: 2000;
-        padding: 2.5rem 1.5rem 2rem 1.5rem;
-        display: block;
-        overflow-y: auto;
-        backdrop-filter: blur(4px);
-    }
-    .main-nav ul {
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 2.5rem;
-    }
-    .main-nav.open {
-        transform: translateX(0);
-        visibility: visible;
-        pointer-events: auto;
-    }
-    .main-nav:not(.open) {
-        visibility: hidden;
-        pointer-events: none;
-    }
-    .main-nav a {
-        font-size: 1.2rem;
-        padding: 1rem 0.5rem;
-        display: block;
-    }
-    .mobile-nav-toggle {
-        display: flex;
-        position: relative;
-        z-index: 2100;
-    }
-    body.nav-open {
-        overflow: hidden;
-    }
+.star-bg .extra-star {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(0,255,231,0.8);
+  box-shadow: 0 0 8px 2px #00ffe7, 0 0 2px 1px #fff;
+  z-index: 0;
+  animation: twinkle 2.5s infinite linear;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
