@@ -1,0 +1,16 @@
+:root {
+    --color-bg-main: #10131a;
+    --color-bg-secondary: #181c24;
+    --color-bg-hero: #151925;
+    --color-bg-card: #1a1e29;
+    --color-accent-gold: #e6c97b;
+    --color-accent-silver: #bfc9d1;
+    --color-text-main: #f5f7fa;
+    --color-text-secondary: #bfc9d1;
+    --color-btn-bg: linear-gradient(90deg, #bfa14a 0%, #e6c97b 100%);
+    --color-btn-bg-hover: linear-gradient(90deg, #e6c97b 0%, #bfa14a 100%);
+    --color-btn-shadow: 0 0 8px 2px #e6c97b80;
+    --color-border: #2a2e39;
+    --font-main: 'Orbitron', 'Eurostile', 'Arial', sans-serif;
+    --transition: 0.2s cubic-bezier(.4,0,.2,1);
+}
