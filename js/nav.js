@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const expanded = navToggle.getAttribute('aria-expanded') === 'true';
             navToggle.setAttribute('aria-expanded', !expanded);
             mainNav.classList.toggle('open');
+            // Animate hamburger icon to X
             if (mainNav.classList.contains('open')) {
                 document.body.classList.add('nav-open');
+                navToggle.classList.add('open');
             } else {
                 document.body.classList.remove('nav-open');
+                navToggle.classList.remove('open');
             }
         });
     }
