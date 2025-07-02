@@ -24,7 +24,12 @@
     <main>
 
         <section class="hero" id="hero">
-            <video class="hero-video-bg" src="assets/0128.mp4" autoplay loop muted playsinline></video>
+            <video class="hero-video-bg" autoplay loop muted playsinline poster="images/hero-poster.jpg">
+                <source src="assets/0128.mp4" type="video/mp4">
+                <source src="assets/0128.webm" type="video/webm">
+                <source src="assets/0128.ogv" type="video/ogg">
+                Your browser does not support the video tag. Please view this site in a modern browser.
+            </video>
             <div class="hero-video-fade"></div>
             <div class="hero-content">
                 <h1>Quantum Dispatch</h1>
