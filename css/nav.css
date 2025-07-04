@@ -124,6 +124,50 @@
         display: block;
     }
 }
+
+
+
+
+.cta-btn.small.pulse {
+    font-size: 0.98rem;
+    border-radius: 1.5em;
+    padding: 0.4em 1.1em;
+    background: linear-gradient(90deg, #00ffe7 0%, #0077ff 100%);
+    color: #181b24;
+    box-shadow: 0 0 8px #00ffe788, 0 1px 4px #0002;
+    animation: pulse-glow 2s infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+    vertical-align: middle;
+    height: 2.2em;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+.cta-btn.small.pulse:hover, .cta-btn.small.pulse:focus {
+    transform: scale(1.04);
+    box-shadow: 0 0 16px #00ffe7bb, 0 2px 8px #0003;
+    outline: none;
+}
+.main-nav .cta-btn {
+    margin-left: 0.5rem;
+    padding: 0.4em 1.1em;
+    font-size: 0.98rem;
+    height: 2.2em;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    border-radius: 1.5em;
+    line-height: 1.1;
+}
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 16px #00ffe7aa, 0 2px 8px #0004; }
+    50% { box-shadow: 0 0 32px #00ffe7cc, 0 4px 16px #0006; }
+}
+
+
+
+
+
 @media (min-width: 901px) {
     .main-nav {
         position: static;
